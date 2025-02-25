@@ -6,6 +6,7 @@
 #define SNAKE_H
 
 #include<SFML/Graphics.hpp>
+#include<vector>
 
 struct SnakeSegment {
     sf::Vector2i position;

@@ -3,6 +3,7 @@
 //
 #include "Snake.h"
 
+
 Snake::Snake(int l_blockSize) {
     m_size = l_blockSize;
     m_bodyRect.setSize(sf::Vector2f(m_size - 1, m_size - 1));
@@ -30,35 +31,35 @@ Direction Snake::GetDirection() {
     return m_dir;
 }
 
-int Snake::getSpeed() {
+int Snake::GetSpeed() {
     return m_speed;
 }
 
 sf::Vector2i Snake::GetPosition() {
     return (!m_snakeBody.empty() ?
-        m_snakeBody.front().position : sf::Vector2f(1, 1));
+        m_snakeBody.front().position : sf::Vector2i(1, 1));
 }
 
-inline int Snake::GetLives() {
+int Snake::GetLives() {
     return m_lives;
 }
 
-inline int Snake::GetScore() {
+int Snake::GetScore() {
     return m_score;
 }
 
-inline void Snake::IncreaseScore() {
+void Snake::IncreaseScore() {
     m_score += 10;
 }
 
-inline bool Snake::HasLost() {
+bool Snake::HasLost() {
     return m_lost;
 }
 
-inline void Snake::Lose() {
+void Snake::Lose() {
     m_lost = true;
 }
-inline void Snake::ToggleLost() {
+void Snake::ToggleLost() {
     m_lost = !m_lost;
 }
 
@@ -74,7 +75,7 @@ void Snake::Extend() {
                 m_snakeBody.push_back(SnakeSegment(tail_head.position.x, tail_head.position.y - 1));
             }
         } else {
-            assert(tail_bone.position.y == tail_head.position.y);
+            // assert(tail_bone.position.y == tail_head.position.y);
             if (tail_bone.position.x < tail_head.position.x) {
                 m_snakeBody.push_back(SnakeSegment(tail_head.position.x + 1, tail_head.position.y));
             } else {
@@ -94,7 +95,7 @@ void Snake::Extend() {
     }
 }
 
-inline void Snake::Tick() {
+void Snake::Tick() {
     if (m_snakeBody.empty()) {return;}
     if (m_dir == Direction::None) {return;}
     Move();
