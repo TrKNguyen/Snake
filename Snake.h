@@ -14,7 +14,7 @@ struct SnakeSegment {
     }
 };
 
-using SnakeContainer = std::vector<SnakeSegment>
+using SnakeContainer = std::vector<SnakeSegment>;
 
 enum class Direction{None, Up, Down, Left, Right};
 
@@ -51,9 +51,14 @@ private:
     int m_size; // Size of the graphics
     Direction m_dir; // Current direction
     int m_speed; // Speed of the snake
-    int m_live; // Lives
+    int m_lives; // Lives
     int m_score; // Score
     bool m_lost; // Losing state
     sf::RectangleShape m_bodyRect; // Shape used in rendering
 };
+
+
+
+
+
 #endif //SNAKE_H

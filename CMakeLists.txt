@@ -14,7 +14,8 @@ link_directories("${SFML_ROOT}/lib")
 
 # Create executable
 add_executable(snake main.cpp
-        Snake.h)
+        Snake.h
+        Snake.cpp)
 
 # Link SFML dynamically
 target_link_libraries(snake sfml-graphics sfml-window sfml-system)
