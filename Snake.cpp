@@ -117,7 +117,7 @@ void Snake::Move() {
     }
 }
 
-inline void Snake::CheckCollision() {
+void Snake::CheckCollision() {
     if (m_snakeBody.size() < 5) {return;}
     SnakeContainer::iterator head = m_snakeBody.begin();
     for (auto itr = m_snakeBody.begin() + 1; itr != m_snakeBody.end(); itr++) {
