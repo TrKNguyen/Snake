@@ -1,10 +1,14 @@
 #include <iostream>
 
-int main() {
+#include "Game.h"
 
+int main(int argc, char ** argv) {
+    Game game;
+    while (!game.GetWindow()->IsDone()) {
+        game.HandleInput();
+        game.Update();
+        game.Render();
+        game.RestartClock();
+    }
+    return 0;
 }
-
-// TIP See CLion help at <a
-// href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>.
-//  Also, you can try interactive lessons for CLion by selecting
-//  'Help | Learn IDE Features' from the main menu.
